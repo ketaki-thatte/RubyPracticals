@@ -1,0 +1,243 @@
+Assignment 1:
+
+1.Question:Find occurance of RUBY from string1
+ans---->
+
+string1.scan("RUBY").count
+ => ["RUBY", "RUBY", "RUBY"] 
+string1.scan("RUBY").count
+ => 3 
+
+
+2.Question:Find the position where RUBY occures in the string 1.
+ans--->
+string1.to_enum(:scan,/(RUBY)/i).map do |m,|
+1.9.3p194 :059 >       p [$`.size,m]
+1.9.3p194 :060?>   end
+[0, "RUBY"]
+[112, "RUBY"]
+[194, "RUBY"]
+ => [[0, "RUBY"], [112, "RUBY"], [194, "RUBY"]] 
+
+3.Question:Create array of words in string 1 & print them using a recursive function.
+ans--->
+array=Array( string1.split(' '))
+ => ["RUBY", "parses", "a", "file", "by", "looking", "for", "<br/>", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY", "code.", "The", "parser", "then", "executes", "all", "of", "the", "code", "it", "finds", "until", "it", "runs", "into", "a", "RUBY", "closing", "<br/>", "tag."] 
+
+1.9.3p194 :063 > array.each do |i|
+1.9.3p194 :064 >     puts i
+1.9.3p194 :065?>   end
+RUBY
+parses
+a
+file
+by
+looking
+for
+<br/>
+one
+of
+the
+special
+tags
+that
+tells
+it
+to
+start
+interpreting
+the
+text
+as
+RUBY
+code.
+The
+parser
+then
+executes
+all
+of
+the
+code
+it
+finds
+until
+it
+runs
+into
+a
+RUBY
+closing
+<br/>
+tag.
+ => ["RUBY", "parses", "a", "file", "by", "looking", "for", "<br/>", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY", "code.", "The", "parser", "then", "executes", "all", "of", "the", "code", "it", "finds", "until", "it", "runs", "into", "a", "RUBY", "closing", "<br/>", "tag."] 
+1.9.3p194 :066 > 
+
+4.Capitalise string 1
+ans--->
+string3 contains array of words present in string 1
+1.9.3p194 :020 > string3.each do |i|
+1.9.3p194 :021 >     puts i.capitalize
+1.9.3p194 :022?>   end
+Ruby
+Parses
+A
+File
+By
+Looking
+For
+<br/>
+One
+Of
+The
+Special
+Tags
+That
+Tells
+It
+To
+Start
+Interpreting
+The
+Text
+As
+Ruby
+Code.
+The
+Parser
+Then
+Executes
+All
+Of
+The
+Code
+It
+Finds
+Until
+It
+Runs
+Into
+A
+Ruby
+Closing
+<br/>
+Tag.
+ => ["RUBY", "parses", "a", "file", "by", "looking", "for", "<br/>", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY"
+
+
+5.Question:Combine string 1 & 2.
+
+ans--->
+string.concat(string1)
+ => "RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag.RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used." 
+
+
+
+6.Question: Print string 1 & 2 using heredoc
+ans--->
+1.9.3p194 :15">puts <<END
+1.9.3p194 :16"> #{string1}
+1.9.3p194 :17"> END
+RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag.RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used.
+
+7.Question :Print current date
+ans-->
+t=Time.now()
+ => 2012-09-13 15:29:21 +0530 
+
+
+8.Question:print 12th Jan 2012
+ans--->
+time=Time.now
+ => 2012-09-13 19:50:18 +0530 
+1.9.3p194 :082 > time.strftime('%d %b %Y')
++>"13 Sep 2012"
+
+9.Question:add 7 days in current date
+ans--->
+Time.now + (1*7*24*60*60)
+ => 2012-09-20 19:56:04 +0530
+
+10.Question:Cut the string 1 into 4 parts & print it.
+ans--->
+string1.split(' ',4)
+ => ["RUBY", "parses", "a", "file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."] 
+1.9.3p194 :026 > 
+
+
+11.Question:Divide the string 1 by occurances of '.'.
+ans--->
+string1.split('.')
+ => ["RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code", " The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag"] 
+1.9.3p194 :003 > string1.split('.').reverse
+
+ans--->
+ => [" The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag", "RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code"] 
+ans--->
+for read array in reverse order
+1.9.3p194 :065 >arr=string1.split('.')
+1.9.3p194 :066 > arr.map{|w| w.reverse}.join(' ')
+ => "YBUR sesrap a elif yb gnikool rof >/rb< eno fo eht laiceps sgat taht sllet ti ot trats gniterpretni eht txet sa YBUR .edoc ehT resrap neht setucexe lla fo eht edoc ti sdnif litnu ti snur otni a YBUR gnisolc >/rb< .gat"
+
+12.Question:Remove the HTML characters from string
+ans--->
+1.9.3p194 :067 > string1.gsub(/<.*?>/,"")
+ => "RUBY parses a file by looking for  one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing  tag." 
+
+13.Question:Print the 'RUBY' word from string 1 by traversing 
+		it using string functions
+ans--->
+string1.scan('RUBY')
+ => ["RUBY", "RUBY", "RUBY"] 
+
+14.Question:Find the length of string 1 & 2
+ans--->
+string1.length()
+ => 217 
+1.9.3p194 :101 > string2="RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used."
+ => "RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used." 
+1.9.3p194 :102 > string2.length()
+ => 162 
+
+15.Question:Create file & write string 1 to that file using RUBY functions.
+ans-->
+outFile = File.new("out.txt", "w")
+ => #<File:out.txt> 
+1.9.3p194 :002 >  outFile.puts("RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag.")
+ => nil 
+1.9.3p194 :003 >     outFile.close
+ => nil  
+ 
+16.Question:Print all Global varibles provided by RUBY
+ans---> 
+global_variables
+ => [:$;, :$-F, :$@, :$!, :$SAFE, :$~, :$&, :$`, :$', :$+, :$=, :$KCODE, :$-K, :$,, :$/, :$-0, :$\, :$_, :$stdin, :$stdout, :$stderr, :$>, :$<, :$., :$FILENAME, :$-i, :$*, :$?, :$$, :$:, :$-I, :$LOAD_PATH, :$", :$LOADED_FEATURES, :$VERBOSE, :$-v, :$-w, :$-W, :$DEBUG, :$-d, :$0, :$PROGRAM_NAME, :$-p, :$-l, :$-a, :$binding, :$1, :$2, :$3, :$4, :$5, :$6, :$7, :$8, :$9] 
+
+17.Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates.
+ans-->
+Time.new(12-4-2010) < Time.new(12-5-2011)
+=> false
+today = DateTime.now
+ => #<DateTime: 2012-09-14T15:19:04+05:30 ((2456185j,35344s,265900071n),+19800s,2299161j)> 
+1.9.3p194 :016 > datefordiff=Date.new(2012, 4, 10)
+ => #<Date: 2012-04-10 ((2456028j,0s,0n),+0s,2299161j)> 
+1.9.3p194 :018 > datediffrence=today-datefordiff
+ => (13600144265900071/86400000000000) 
+1.9.3p194 :019 > datediffrence.to_i
+ => 157 
+
+18 Question:Print date after 20 days from current date.
+ans--->
+Time.now + (20*24*60*60)
+ => 2012-10-03 20:06:36 +0530 
+
+19 Question:Print date in array format.
+ans---> 
+"13 Sep 2012".split(",")
+ => ["13 Sep 2012"] 
+1.9.3p194 :099 > "13 Sep 2012".split()
+ => ["13", "Sep", "2012"] 
+
+
+
+
