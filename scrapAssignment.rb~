@@ -13,10 +13,10 @@ def scrap_assignment
    
 center_element_data.each do |i|
 
-   link = centerdata.css('div.center-module a').map { |link| link['href'] }
+   link = center_element_data.css('div.center-module a').map { |link| link['href'] }
     for j in 1...20
 
-       receipedata=Mysql2::Client.new(:host => "localhost", :username =>   	"root", :password => "webonise6186", :database => "rubydata")
+       receipedata=Mysql2::Client.new(:host => "localhost", :username => "root", :password => "webonise6186", :database => "rubydata")
 
      insert=receipedata.query("INSERT INTO recipe_link (link_name) values('#{link[j]}')")
 
@@ -26,11 +26,11 @@ center_element_data.each do |i|
 
 	 for k in 1...20
 
-       archeivedata=data.css('.archive-entry-description') 
+       archeivedata=datarecipe.css('.archive-entry-description') 
 
            archeivedata.each do |k1|
 
-   insert=receipedata.query("INSERT INTO next_link (link_name,description) values('#{link[k]}','#{k1}')")  
+   insert=receipedata.query("INSERT INTO next_link (link_name,description) values('#{link2[k]}','#{k1}')")  
 end 
 end
 end 
